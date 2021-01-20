@@ -24,12 +24,26 @@ void State_Machine(){
 		break;	
 		
 		case OFF:
+		if(button == 0x01){
+		Led_State = ON;
+		}
+		else{
+		Led_State = OFF;
+		}	
 		break;
 
 		case ON:
+		if(button == 0x01){
+			Led_State = ON;
+		}
+		else{
+			state = OFF;
+		}
 		break;
 
-
+		default:
+		Led_State = START;
+		break;
 	}//transitions
 
 	switch(Led_State){ //actions
