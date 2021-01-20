@@ -37,7 +37,7 @@ void State_Machine(){
 			Led_State = ON;
 		}
 		else{
-			state = OFF;
+			Led_State = OFF;
 		}
 		break;
 
@@ -48,9 +48,13 @@ void State_Machine(){
 
 	switch(Led_State){ //actions
 		case OFF:
+		tmpB = 0x01;
+		PORTB = tmpB;
 		break;
 		
 		case ON:
+		tmpB = 0x02;
+		PORTB = tmpB;
 		break;
 
 		default:
@@ -63,7 +67,10 @@ int main(void) {
 DDRA = 0x00; PORTA = 0xFF; // Configure port A's  pins as inputs
 	DDRB = 0xFF; PORTB = 0x00;
 	unsigned char button = 0x00;
+	unsigned char tmpB = 0x00;
     /* Insert your solution below */
+	PORTB = 0x01;
+	Led_State = START;
     while (1) {
 	State_Machine();
     }
