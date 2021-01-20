@@ -24,7 +24,23 @@ void State_Machine(){
 		break;	
 		
 		case OFF:
+		break;
 
+		case ON:
+		break;
+
+
+	}//transitions
+
+	switch(Led_State){ //actions
+		case OFF:
+		break;
+		
+		case ON:
+		break;
+
+		default:
+		break;
 	}
 }
 int main(void) {
