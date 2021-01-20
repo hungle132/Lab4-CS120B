@@ -11,9 +11,11 @@
 #ifdef _SIMULATE_
 #include "simAVRHeader.h"
 #endif
-emum LED_STATES {START,ON,OFF} Led_State;
 
+enum LED_STATES{START,ON,OFF} Led_State;
 
+unsigned char button = 0x00;
+unsigned tmpB = 0x00;
 void State_Machine(){
 	switch(Led_State){
 	
@@ -66,8 +68,6 @@ int main(void) {
 
 DDRA = 0x00; PORTA = 0xFF; // Configure port A's  pins as inputs
 	DDRB = 0xFF; PORTB = 0x00;
-	unsigned char button = 0x00;
-	unsigned char tmpB = 0x00;
     /* Insert your solution below */
 	PORTB = 0x01;
 	Led_State = START;
