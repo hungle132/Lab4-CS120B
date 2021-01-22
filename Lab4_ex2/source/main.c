@@ -13,7 +13,7 @@
 #endif
 
 
-enum INC_States {Start,wait,plus,minus,both} INC_State;
+enum INC_States {Start,wait,button1,button2,plus,minus,both} INC_State;
 
 unsigned char val;
 unsigned char tmpA1;
@@ -29,7 +29,11 @@ void State_Machine(){//transitions
 		break;
 
 		case wait:
+		if (tmpA1 == 1)
 		break;
+
+		case button:
+		break
 
 		case plus:
 		break;
@@ -49,6 +53,8 @@ void State_Machine(){//transitions
 			PORTC = 7;
 		break;
 		case wait:
+		break;
+		case button:
 		break;
 		case plus:
 		if(PORTC < 9){
